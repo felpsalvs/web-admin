@@ -3,9 +3,9 @@ function App() {
 
   return (
     <>
-      <p>
+      <div className="app">
         Dashboard
-      </p>
+      </div>
     </>
   )
 }
