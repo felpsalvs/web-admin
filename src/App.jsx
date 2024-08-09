@@ -3,7 +3,6 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
 import Topbar from "./scenes/global/Topbar";
-import Sidebar from "./scenes/global/Sidebar"
 import Home from "./scenes/home";
 // import Pacttos from "./scenes/pacttos"
 // import Review from "./scenes/review"
