@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Box m='20px'>
       <Box display='flex' justifyContent='space-between' alignItems='center'>
-        <Header title='Home' subtitle='Hey Felipe, welcome to Pactto!'/>
+        <Header title='HOME' subtitle='Hey Felipe, welcome to Pactto!'/>
         <p>Open your inbox and verify your email</p>
         <p>Check the <a href="https://www.youtube.com/watch?v=CvbvDGsZsKM&t=93s">short video of Pactto in action</a></p>
         <p>Wanna record your computer screen or review files? Download Pactto for Mac or Windows</p>

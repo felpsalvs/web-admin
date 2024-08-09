@@ -6,15 +6,15 @@ import { useState } from "react";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Home from "./scenes/home";
-// import Pacttos from "./scenes/pacttos"
-// import Review from "./scenes/review"
-// import Shared from "./scenes/shared"
-// import Info from "./scenes/info"
-// import Packages from "./scenes/packages"
-// import Profile from "./scenes/profile"
-// import Library from "./scenes/library"
-// import Subscription from "./scenes/subscription"
-// import Settings from "./scenes/settings"
+import Pacttos from "./scenes/pacttos"
+import Review from "./scenes/review"
+import Shared from "./scenes/shared"
+import Info from "./scenes/info"
+import Packages from "./scenes/packages"
+import Profile from "./scenes/profile"
+import Library from "./scenes/library"
+import Subscription from "./scenes/subscription"
+import Settings from "./scenes/settings"
 
 
 
@@ -31,8 +31,8 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar}/>
             <Routes>
-              <Route path="/" element={<Home />} />
-              {/* <Route path="/pacttos" element={<Pacttos />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/pacttos" element={<Pacttos />} />
               <Route path="/review" element={<Review />} />
               <Route path="/shared" element={<Shared />} />
               <Route path="/info" element={<Info />} />
@@ -40,7 +40,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/library" element={<Library />} />
               <Route path="/subscription" element={<Subscription />} />
-              <Route path="/settings" element={<Settings />} />*/}
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </main>
         </div>
