@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -14,8 +14,9 @@ import ProfileIcon from "@mui/icons-material/ViewCarousel";
 import LibraryIcon from "@mui/icons-material/OndemandVideo";
 import SubscriptionIcon from "@mui/icons-material/Subscriptions";
 import SettingsIcon from "@mui/icons-material/Settings";
-import MenuIcon from '@mui/icons-material/Menu';
-import PropTypes from 'prop-types';
+import MenuIcon from "@mui/icons-material/Menu";
+import PropTypes from "prop-types";
+import avatar from "../../assets/avatar.png";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -25,13 +26,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.grey[500],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
+      component={<Link to={to} />}
     >
       <Typography>{title}</Typography>
-      <Link to={to} />
     </MenuItem>
   );
 };
@@ -51,26 +52,14 @@ const ProSidebar = () => {
   const [selected, setSelected] = useState("Home");
 
   return (
-    <Box
-      sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+    <Box>
+      <Sidebar 
+      collapsed={isCollapsed}
+      rootStyles={{
+        [`.${sidebarClasses.container}`]: {
+          backgroundColor: colors.black[500],
         },
-        "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 0px !important",
-        },
-        "& .pro-inner-item:hover": {
-          color: "#fff !important",
-        },
-        "& .pro-menu-item.active": {
-          color: "#1dbba5 !important",
-        },
-      }}
-    >
-      <Sidebar collapsed={isCollapsed}>
+      }}>
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -88,7 +77,7 @@ const ProSidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h6" color={colors.secondary[500]}>
-                 YOUR PACTTO PROFILE
+                  YOUR PACTTO PROFILE
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuIcon />
@@ -104,7 +93,7 @@ const ProSidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/avatar.png`}
+                  src={avatar}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
