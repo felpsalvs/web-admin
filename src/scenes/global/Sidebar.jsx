@@ -15,6 +15,7 @@ import LibraryIcon from "@mui/icons-material/OndemandVideo";
 import SubscriptionIcon from "@mui/icons-material/Subscriptions";
 import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from '@mui/icons-material/Menu';
+import PropTypes from 'prop-types';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -34,6 +35,15 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     </MenuItem>
   );
 };
+
+Item.propTypes = {
+  title: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  selected: PropTypes.string.isRequired,
+  setSelected: PropTypes.func.isRequired,
+};
+
 const ProSidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -50,7 +60,7 @@ const ProSidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
+          padding: "5px 35px 5px 0px !important",
         },
         "& .pro-inner-item:hover": {
           color: "#fff !important",
@@ -77,8 +87,8 @@ const ProSidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Pactto
+                <Typography variant="h6" color={colors.secondary[500]}>
+                 YOUR PACTTO PROFILE
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuIcon />
@@ -124,7 +134,7 @@ const ProSidebar = () => {
             />
 
             <Item
-              title="Pacttos"
+              title="Pacttos (Chats)"
               to="/pacttos"
               icon={<PacttosIcon />}
               selected={selected}

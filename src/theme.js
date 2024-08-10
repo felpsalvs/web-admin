@@ -128,18 +128,18 @@ export const themeSettings = (mode) => {
       ...(mode === "dark"
         ? {
             primary: {
-              main: colors.primary[500],
+              main: colors.primary[400],
             },
             secondary: {
-              main: colors.secondary[500],
+              main: colors.secondary[400],
             },
             neutral: {
               dark: colors.grey[700],
-              main: colors.grey[500],
+              main: colors.grey[400],
               light: colors.grey[100],
             },
             background: {
-              default: colors.black[500],
+              default: "#212121",
             },
           }
         : {
@@ -147,11 +147,11 @@ export const themeSettings = (mode) => {
               main: colors.primary[100],
             },
             secondary: {
-              main: colors.secondary[500],
+              main: colors.secondary[400],
             },
             neutral: {
               dark: colors.grey[700],
-              main: colors.grey[500],
+              main: colors.grey[400],
               light: colors.grey[100],
             },
             background: {

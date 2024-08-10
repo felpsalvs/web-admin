@@ -31,7 +31,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar}/>
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/pacttos" element={<Pacttos />} />
               <Route path="/review" element={<Review />} />
               <Route path="/shared" element={<Shared />} />

@@ -11,12 +11,7 @@ const Topbar = () => {
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
-      <Box
-        display="flex"
-      >
-        <h2 sx={{ ml: 2, flex: 1 }}>Hey Felipe, welcome to Pactto!</h2>
-      </Box>
-
+      <Box display="flex"></Box>
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
