@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme, Chip} from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
 
@@ -17,6 +17,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
 import PropTypes from "prop-types";
 import avatar from "../../assets/avatar.png";
+import logo from '../../assets/pactto-logo.svg'
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -57,7 +58,7 @@ const ProSidebar = () => {
       collapsed={isCollapsed}
       rootStyles={{
         [`.${sidebarClasses.container}`]: {
-          backgroundColor: colors.black[500],
+          backgroundColor: colors.black[500]
         },
       }}>
         <Menu iconShape="square">
@@ -71,53 +72,61 @@ const ProSidebar = () => {
           >
             {!isCollapsed && (
               <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              ml="15px"
               >
-                <Typography variant="h6" color={colors.secondary[500]}>
-                  YOUR PACTTO PROFILE
-                </Typography>
+              <img src={logo} alt="Logo Pactto" height="45px" />
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuIcon />
                 </IconButton>
+                
               </Box>
+              
             )}
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="25px">
+            <Box>
+              <Typography display="flex"
+              justifyContent="center"
+              textAlign="left"
+              variant="h6" color={colors.secondary[500]}>
+                  YOUR PACTTO PROFILE
+                </Typography>
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
-                  width="100px"
-                  height="100px"
+                  width="40px"
+                  height="40px"
                   src={avatar}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
+                <Chip label="PACTTO PRO" size="small" />
+                <Typography>upgrade</Typography>
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
+                  variant="h4"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                   Felipe Alves
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
+                <Typography variant="h5" color={colors.grey[500]}>
                   Pactto member since 2024
                 </Typography>
               </Box>
             </Box>
           )}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box paddingLeft={isCollapsed ? undefined : "0%"}>
             <Item
               title="Home"
               to="/"
-              icon={<HomeIcon />}
+              icon={<HomeIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
@@ -125,55 +134,55 @@ const ProSidebar = () => {
             <Item
               title="Pacttos (Chats)"
               to="/pacttos"
-              icon={<PacttosIcon />}
+              icon={<PacttosIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Review"
+              title="Items to review"
               to="/review"
-              icon={<ReviewIcon />}
+              icon={<ReviewIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Shared"
+              title="Web links you created"
               to="/shared"
-              icon={<SharedIcon />}
+              icon={<SharedIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Info"
+              title="Personal information"
               to="/info"
-              icon={<InfoIcon />}
+              icon={<InfoIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Packages"
+              title="Review packages for sale"
               to="/packages"
-              icon={<PackagesIcon />}
+              icon={<PackagesIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Profile"
+              title="Pactto website"
               to="/profile"
-              icon={<ProfileIcon />}
+              icon={<ProfileIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Library"
+              title="Reference video library"
               to="/library"
-              icon={<LibraryIcon />}
+              icon={<LibraryIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
@@ -181,19 +190,19 @@ const ProSidebar = () => {
             <Item
               title="Subscription"
               to="/subscription"
-              icon={<SubscriptionIcon />}
+              icon={<SubscriptionIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title="Settings"
+              title="Review Settings"
               to="/settings"
-              icon={<SettingsIcon />}
+              icon={<SettingsIcon sx={{fontSize: 24}}/>}
               selected={selected}
               setSelected={setSelected}
             />
-          </Box>
+          </Box>    
         </Menu>
       </Sidebar>
     </Box>
