@@ -15,7 +15,6 @@ const Home = () => {
       </Box>
 
       <Box mb="20px">
-        {/* Primeiro Texto */}
         <Box display="flex" alignItems="center" mb="10px">
           <Chip label="DONE" color="secondary" />
           <Typography variant="body1" ml="10px">
@@ -23,7 +22,6 @@ const Home = () => {
           </Typography>
         </Box>
 
-        {/* Segundo Texto */}
         <Box display="flex" alignItems="center" mb="10px">
           <Chip label="DONE" color="secondary" />
           <Typography variant="body1" ml="10px">
@@ -34,7 +32,6 @@ const Home = () => {
           </Typography>
         </Box>
 
-        {/* Terceiro Texto */}
         <Box display="flex" alignItems="center" mb="10px">
           <Chip label="DONE" color="secondary" />
           <Typography variant="body1" ml="10px">
@@ -49,7 +46,6 @@ const Home = () => {
           </Typography>
         </Box>
 
-        {/* Quarto Texto */}
         <Box display="flex" alignItems="center">
           <Chip label="DONE" color="secondary" />
           <Typography variant="body1" ml="10px">

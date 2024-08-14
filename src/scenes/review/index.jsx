@@ -1,15 +1,23 @@
-import {Box, Typography, useTheme} from '@mui/material'
-import {tokens} from '../../theme'
+import {Box, TextField} from '@mui/material'
+import SearchIcon from "@mui/icons-material/Search";
+
 import Header from '../../components/Header'
 
 const Review = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.pallete.mode);
 
   return (
-    <Box>
-      <Header title='There are no review requests sent to you' subtitle='Chats' />
-      
+    <Box m="20px">
+      <Header title='There are no review requests sent to you' />
+      <Box>
+        <TextField
+          fullWidth
+          variant="outlined"
+          placeholder="Search"
+          InputProps={{
+            startAdornment: <SearchIcon sx={{ mr: 1 }} />,
+          }}
+        />
+      </Box>
     </Box>
   )
 }
