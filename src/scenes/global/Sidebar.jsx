@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme, Chip} from "@mui/material";
+import { Box, IconButton, Typography, useTheme, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
 
@@ -15,7 +15,6 @@ import LibraryIcon from "@mui/icons-material/OndemandVideo";
 import SubscriptionIcon from "@mui/icons-material/Subscriptions";
 import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
-import PropTypes from "prop-types";
 import avatar from "../../assets/avatar.png";
 import logo from '../../assets/pactto-logo.svg'
 
@@ -27,7 +26,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[500],
+        color: selected === title ? colors.greenAccent[500] : colors.grey[300],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -38,14 +37,6 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-Item.propTypes = {
-  title: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
-  selected: PropTypes.string.isRequired,
-  setSelected: PropTypes.func.isRequired,
-};
-
 const ProSidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -53,14 +44,15 @@ const ProSidebar = () => {
   const [selected, setSelected] = useState("Home");
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex' }}>
       <Sidebar 
-      collapsed={isCollapsed}
-      rootStyles={{
-        [`.${sidebarClasses.container}`]: {
-          backgroundColor: colors.black[500]
-        },
-      }}>
+        collapsed={isCollapsed}
+        rootStyles={{
+          [`.${sidebarClasses.container}`]: {
+            backgroundColor: colors.black[500],
+          },
+        }}
+      >
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -72,30 +64,25 @@ const ProSidebar = () => {
           >
             {!isCollapsed && (
               <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              ml="15px"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                ml="15px"
               >
-              <img src={logo} alt="Logo Pactto" height="45px" />
+                <img src={logo} alt="Logo Pactto" height="45px" />
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuIcon />
                 </IconButton>
-                
               </Box>
-              
             )}
           </MenuItem>
 
           {!isCollapsed && (
-            <Box>
-              <Typography display="flex"
-              justifyContent="center"
-              textAlign="left"
-              variant="h6" color={colors.secondary[500]}>
-                  YOUR PACTTO PROFILE
-                </Typography>
-              <Box display="flex" justifyContent="center" alignItems="center">
+            <Box textAlign="center" mb={2}>
+              <Typography variant="h6" color={colors.secondary[500]}>
+                YOUR PACTTO PROFILE
+              </Typography>
+              <Box display="flex" justifyContent="center" alignItems="center" mt={1}>
                 <img
                   alt="profile-user"
                   width="40px"
@@ -103,21 +90,22 @@ const ProSidebar = () => {
                   src={avatar}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
-                <Chip label="PACTTO PRO" size="small" />
-                <Typography>upgrade</Typography>
+                <Box ml={1} textAlign="left">
+                  <Typography color={colors.greenAccent[500]}>
+                    PACTTO PRO
+                  </Typography>
+                  <Typography variant="caption" color={colors.grey[400]}>
+                    upgrade
+                  </Typography>
+                </Box>
               </Box>
               <Box textAlign="center">
-                <Typography
-                  variant="h4"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Felipe Alves
-                </Typography>
-                <Typography variant="h5" color={colors.grey[500]}>
-                  Pactto member since 2024
-                </Typography>
+              <Typography variant="h4" color={colors.grey[100]} fontWeight="bold" mt={1} sx={{ m: "10px 0 0 0" }}>
+                Felipe dos Santos Alves
+              </Typography>
+              <Typography variant="h5" color={colors.grey[500]}>
+                Pactto member since 2024
+              </Typography>
               </Box>
             </Box>
           )}
@@ -130,7 +118,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Pacttos (Chats)"
               to="/pacttos"
@@ -138,7 +125,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Items to review"
               to="/review"
@@ -146,7 +132,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Web links you created"
               to="/shared"
@@ -154,7 +139,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Personal information"
               to="/info"
@@ -162,7 +146,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Review packages for sale"
               to="/packages"
@@ -170,7 +153,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Pactto website"
               to="/profile"
@@ -178,7 +160,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Reference video library"
               to="/library"
@@ -186,7 +167,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Subscription"
               to="/subscription"
@@ -194,7 +174,6 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Review Settings"
               to="/settings"
@@ -202,8 +181,25 @@ const ProSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-          </Box>    
+          </Box>
         </Menu>
+        {!isCollapsed && (
+          <Box mt="auto" p={2}>
+            <Button 
+              fullWidth 
+              variant="contained" 
+              sx={{ 
+                backgroundColor: colors.grey[500],
+                color: colors.grey[100],
+                '&:hover': {
+                  backgroundColor: colors.grey[700],
+                }
+              }}
+            >
+              LOGOUT
+            </Button>
+          </Box>
+        )}
       </Sidebar>
     </Box>
   );
