@@ -138,6 +138,9 @@ export const themeSettings = (mode) => {
               main: colors.grey[400],
               light: colors.grey[100],
             },
+            profile: {
+              main: "#1994fc",
+            },
             background: {
               default: "#212121",
             },
