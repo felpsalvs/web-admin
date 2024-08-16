@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar"
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
 import { tokens } from "../../theme"
@@ -27,7 +27,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 		<MenuItem
 			active={selected === title}
 			style={{
-				color: selected === title ? colors.greenAccent[500] : colors.grey[300],
+				color: selected === title ? colors.greenAccent[500] : colors.grey[500],
 			}}
 			onClick={() => setSelected(title)}
 			icon={icon}
@@ -48,13 +48,32 @@ const ProSidebar = () => {
 		<Box sx={{ display: "flex" }}>
 			<Sidebar
 				collapsed={isCollapsed}
+				width="270px"
+				collapsedWidth="80px"
+				backgroundColor={colors.black[400]}
 				rootStyles={{
-					[`.${sidebarClasses.container}`]: {
-						backgroundColor: colors.black[500],
-					},
+					borderRight: "none",
 				}}
 			>
-				<Menu iconShape="square">
+				<Menu
+					iconShape="square"
+					menuItemStyles={{
+						root: {
+							fontSize: "14px",
+							fontWeight: 400,
+						},
+						button: {
+							"&:hover": {
+								backgroundColor: colors.primary[600],
+								color: colors.grey[100],
+							},
+							"&.active": {
+								backgroundColor: colors.primary[600],
+								color: colors.grey[500],
+							},
+						},
+					}}
+				>
 					<MenuItem
 						onClick={() => setIsCollapsed(!isCollapsed)}
 						icon={isCollapsed ? <MenuIcon /> : undefined}
@@ -97,7 +116,11 @@ const ProSidebar = () => {
 									style={{ cursor: "pointer", borderRadius: "50%" }}
 								/>
 								<Box ml={1} textAlign="left">
-									<Typography color={colors.greenAccent[500]}>
+									<Typography
+										backgroundColor={colors.greenAccent[500]}
+										borderRadius="5px"
+										padding="3px"
+									>
 										PACTTO PRO
 									</Typography>
 									<Typography variant="caption" color={colors.grey[400]}>
