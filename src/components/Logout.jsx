@@ -13,8 +13,8 @@ const Logout = () => {
 				sx={{
 					backgroundColor: colors.grey[400],
 					color: colors.black[500],
-					fontWeight: '600',
-					height: '48px',
+					fontWeight: "600",
+					height: "48px",
 					"&:hover": {
 						backgroundColor: colors.grey[300],
 					},
